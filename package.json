@@ -10,6 +10,13 @@
     "jasmine": "jasmine",
     "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write"
   },
+  "pre-commit": [
+    "prettier",
+    "test"
+  ],
+  "pre-commit": {
+    "silent": true
+  },
   "author": "Yinchi Luo",
   "license": "ISC",
   "dependencies": {
@@ -30,6 +37,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",
     "nodemon": "^2.0.15",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.5.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
