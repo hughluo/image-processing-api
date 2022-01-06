@@ -3,9 +3,9 @@ import app from '../index'
 
 const request = supertest(app)
 describe('Test root endpoint responses', () => {
-    it('gets the root endpoint', async () => {
-        const response = await request.get('/')
-        expect(response.status).toBe(200)
-        expect(response.text).toBe('Hello world!')
-    })
+  it('gets the root endpoint', async () => {
+    const response = await request.get('/')
+    expect(response.status).toBe(200)
+    expect(response.text).toBe('Hello world!')
+  })
 })

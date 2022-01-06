@@ -3,17 +3,17 @@ import { resolve } from 'path'
 import sharp from 'sharp'
 
 describe('Test image resize', () => {
-    it('success with right metadata width and height', async () => {
-        const inputFile = 'parrot.jpeg'
-        const gotOutput = await resize(inputFile, 200, 200)
-        const expectOutput = resolve('./assets/output/parrot.jpeg.png')
-        expect(gotOutput).toBe(expectOutput)
-        const metadata = await sharp(gotOutput).metadata()
-        expect(metadata.width).toBe(200)
-        expect(metadata.height).toBe(200)
-    })
+  it('success with right metadata width and height', async () => {
+    const inputFile = 'parrot.jpeg'
+    const gotOutput = await resize(inputFile, 200, 200)
+    const expectOutput = resolve('./assets/output/parrot.jpeg.png')
+    expect(gotOutput).toBe(expectOutput)
+    const metadata = await sharp(gotOutput).metadata()
+    expect(metadata.width).toBe(200)
+    expect(metadata.height).toBe(200)
+  })
 
-    it('failed with non-existing file', async () => {
-        await expectAsync(resize('non-existing', 200, 200)).toBeRejected()
-    })
+  it('failed with non-existing file', async () => {
+    await expectAsync(resize('non-existing', 200, 200)).toBeRejected()
+  })
 })
