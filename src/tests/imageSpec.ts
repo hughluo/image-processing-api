@@ -1,8 +1,14 @@
 import { resize } from '../util/image'
 import { resolve } from 'path'
 import sharp from 'sharp'
+import fs from 'fs'
 
 describe('Test image resize', () => {
+  afterEach(() => {
+    const outputDir = resolve('./assets/output')
+    fs.rmdirSync(outputDir, { recursive: true })
+  })
+
   it('success with right metadata width and height', async () => {
     const inputFile = 'parrot.jpeg'
     const gotOutput = await resize(inputFile, 200, 200)

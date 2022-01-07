@@ -1,11 +1,13 @@
 import supertest from 'supertest'
 import app from '../index'
 import fs from 'fs'
+import { resolve } from 'path'
 
 const request = supertest(app)
 describe('Test image api endpoint responses', () => {
   afterEach(() => {
-    console.log(__dirname)
+    const outputDir = resolve('./assets/output')
+    fs.rmdirSync(outputDir, { recursive: true })
   })
 
   it('non-existing filename', async () => {
