@@ -2,11 +2,11 @@ import sharp from 'sharp'
 import fs from 'fs'
 import { resolve } from 'path'
 
-export const resize = async (
+export const resize = async function (
   filename: string,
   width: number,
   height: number,
-) => {
+): Promise<string> {
   const outputDir = './assets/output'
   const outputFilename = `${outputDir}/${filename}.png`
   if (!fs.existsSync(outputDir)) {
