@@ -11,9 +11,12 @@
     "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write",
     "eslint": "npx eslint src/**/**.ts"
   },
-  "pre-commit": {
-    "silent": true
-  },
+  "pre-commit": [
+    "prettier",
+    "eslint",
+    "test"
+  ],
+  "pre-commit.silent": true,
   "author": "Yinchi Luo",
   "license": "ISC",
   "dependencies": {

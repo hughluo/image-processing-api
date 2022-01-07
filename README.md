@@ -13,4 +13,5 @@
 ## Pre-commit
 The following npm command will be executed before git commit. This is controlled by npm package [`pre-commit`](https://www.npmjs.com/package/pre-commit).
 * Run `npm prettier` to format the code. For configuration, see[.prettierrc.json](./.prettierrc.json).
+* Run `npm eslint` to lint the code. For configuration, see[.eslintrc.json](./.eslintrc.json).
 * Run `npm test` to run tests powered by [`Jasmine`](https://www.npmjs.com/package/jasmine). For configuration, see [jasmine.json](./spec/support/jasmine.json). For reporter configuration, see [reporter.ts](./src/tests/helpers/reporter.ts).
