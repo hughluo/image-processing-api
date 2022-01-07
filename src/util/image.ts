@@ -12,10 +12,14 @@ export const resize = async function (
 
   // naive caching
   if (fs.existsSync(outputFilename)) {
-      const metadata = await sharp(outputFilename).metadata()
-      if (metadata.width == width && metadata.height == height) {
-        return resolve(outputFilename)
-      }
+    const metadata = await sharp(outputFilename).metadata()
+    if (
+      metadata.width == width &&
+      metadata.height == height &&
+      metadata.format == 'png'
+    ) {
+      return resolve(outputFilename)
+    }
   }
 
   if (!fs.existsSync(outputDir)) {
