@@ -8,7 +8,8 @@
     "start": "nodemon src/index.ts",
     "test": "npm run build && npm run jasmine",
     "jasmine": "jasmine",
-    "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write"
+    "prettier": "prettier --config .prettierrc.json 'src/**/*.ts' --write",
+    "eslint": "npx eslint src/**/**.ts"
   },
   "pre-commit": {
     "silent": true
