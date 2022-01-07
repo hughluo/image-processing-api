@@ -9,6 +9,15 @@ export const resize = async function (
 ): Promise<string> {
   const outputDir = './assets/output'
   const outputFilename = `${outputDir}/${filename}.png`
+
+  // naive caching
+  if (fs.existsSync(outputFilename)) {
+      const metadata = await sharp(outputFilename).metadata()
+      if (metadata.width == width && metadata.height == height) {
+        return resolve(outputFilename)
+      }
+  }
+
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir)
   }
