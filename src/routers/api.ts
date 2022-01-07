@@ -1,9 +1,9 @@
-import { Router } from 'express'
+import { Request, Response, Router } from 'express'
 import { resize } from '../util/image'
 
 const router = Router()
 
-router.get('/images', (req, res) => {
+router.get('/images', (req: Request, res: Response): void => {
   try {
     const filename = req.query.filename as unknown as string
     const width = parseInt(req.query.width as unknown as string)
